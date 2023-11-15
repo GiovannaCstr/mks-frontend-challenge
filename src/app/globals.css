@@ -1,5 +1,6 @@
 :root {
-  --border-radius: 12px;
+  --white: #fff;
+  --primary: #0F52BA;
 }
 
 * {
@@ -8,9 +9,4 @@
   margin: 0;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 
