@@ -8,3 +8,7 @@ export interface Products {
     price: string;
     updatedAt: string;
 }
+
+export interface ProductsInCart extends Products {
+    quantity: number
+}

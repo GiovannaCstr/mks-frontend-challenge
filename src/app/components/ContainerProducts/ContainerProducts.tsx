@@ -22,8 +22,8 @@ export function ContainerProducts(props: containerProps) {
                 <CardProducts
                     key={item.id}
                     id={item.id}
-                    imagem={item.photo}
-                    title={item.name}
+                    photo={item.photo}
+                    name={item.name}
                     price={item.price}
                 />
             ))}

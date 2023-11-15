@@ -4,8 +4,8 @@ import { ShoppingBagIcon } from "../Icons/ShoppingbagIcon"
 
 interface CardProductsProps {
     id: number,
-    imagem: string,
-    title: string,
+    photo: string,
+    name: string,
     price: string
 }
 
@@ -88,9 +88,9 @@ export function CardProducts(product: CardProductsProps) {
 
     return (
         <Div>
-            <img src={product.imagem}/>
+            <img src={product.photo}/>
             <div>
-                <h3>{product.title}</h3>
+                <h3>{product.name}</h3>
                 <span>R${product.price}</span>
             </div>
             <p>Redesigned from scratch and completely revised.</p>
