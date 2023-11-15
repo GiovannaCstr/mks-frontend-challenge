@@ -2,23 +2,23 @@
 import { styled } from "styled-components"
 import { CartShoppingIcon } from "../Icons/cartShoppingIcon"
 
-const Div = styled.div`
+const Button = styled.button`
     display: flex;
     align-items: center;
     gap: 15px;
     background-color: var(--white);
+    border: none;
     border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
     padding: 15px 27px;
-    span {
-        font-weight: 700;
-    }
 `
 
 export function ShoppingCart() {    
     return (
-        <Div>
+        <Button>
             <CartShoppingIcon/>
             <span>0</span>
-        </Div>
+        </Button>
     )
 }
