@@ -1,6 +1,7 @@
 "use client"
 import { styled } from "styled-components"
-import { CartShoppingIcon } from "../Icons/cartShoppingIcon"
+import { CartShoppingIcon } from "../Icons/CartShoppingIcon"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 const Button = styled.button`
     display: flex;
@@ -14,11 +15,12 @@ const Button = styled.button`
     padding: 15px 27px;
 `
 
-export function ShoppingCart() {    
+export function ShoppingCart() {  
+    const { value } = useLocalStorage('cart-items', [])
     return (
         <Button>
             <CartShoppingIcon/>
-            <span>0</span>
+            <span>{value.length}</span>
         </Button>
     )
 }

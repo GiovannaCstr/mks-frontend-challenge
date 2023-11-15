@@ -1,5 +1,6 @@
 "use client"
 import { styled } from "styled-components"
+import { ShoppingBagIcon } from "../Icons/ShoppingbagIcon"
 
 interface CardProductsProps {
     id: number,
@@ -52,6 +53,10 @@ const Div = styled.div`
         border-radius: 0 0 8px 8px;
         color: var(--white);
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
         font-size: 14px;
         font-weight: 400;
         padding: 7px 30px;
@@ -60,6 +65,27 @@ const Div = styled.div`
 `
 
 export function CardProducts(product: CardProductsProps) {
+    const handleAddToCart = (productId: number) => {
+        let cartItems = localStorage.getItem('cart-items');
+        if(cartItems) {
+            let cartItemsArray = JSON.parse(cartItems);
+
+            let existingProductIndex = cartItemsArray.findIndex((item: { id: number }) => item.id === productId);
+
+
+            if(existingProductIndex != -1){
+                cartItemsArray[existingProductIndex].quantity += 1;
+            } else {
+                cartItemsArray.push({ ...product, quantity: 1, id: productId })
+            }
+
+            localStorage.setItem('cart-items', JSON.stringify(cartItemsArray));
+        } else {
+            const newCart = [{ ...product, quantity: 1, id: productId }]
+            localStorage.setItem('cart-items', JSON.stringify(newCart));
+        }
+    }
+
     return (
         <Div>
             <img src={product.imagem}/>
@@ -68,7 +94,10 @@ export function CardProducts(product: CardProductsProps) {
                 <span>R${product.price}</span>
             </div>
             <p>Redesigned from scratch and completely revised.</p>
-            <button>COMPRAR</button>
+            <button onClick={() => handleAddToCart(product.id)}>
+                <ShoppingBagIcon/>
+                COMPRAR
+            </button>
         </Div>
     )
 }

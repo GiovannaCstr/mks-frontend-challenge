@@ -1,9 +1,9 @@
+import './globals.css'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
-import './globals.css'
 import { Header } from './components/Header/Header'
 
-const montserrat = Montserrat({ 
+const fontMontserrat = Montserrat({ 
   weight: ['700', '600', '400', '300'],
   subsets: ['latin'] 
 })
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={fontMontserrat.className}>
         <Header/>
         {children}
       </body>
